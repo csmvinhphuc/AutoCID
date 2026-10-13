@@ -1,0 +1,34 @@
+DUA AUTOCID LEN GITHUB DE DUNG LENH 1 DONG (irm | iex)
+=========================================================
+
+File can upload (da co san trong thu muc Github\):
+  AutoCID-Online.ps1   : script launcher (nho ~5 KB)
+
+CAC BUOC (lam 1 lan):
+  1. Tao repo moi tren github.com, vd: csmvinhphuc/AutoCID.
+  2. Upload AutoCID-Online.ps1 vao nhanh main (Add file > Upload files).
+  3. Sua 3 dong cau hinh trong file tren GitHub (bam Edit):
+       $Repo      = 'csmvinhphuc/AutoCID'     <- user/repo cua ban
+       $Asset     = 'AutoCID_Full_MoiNhat.zip'
+       $ScriptUrl = 'https://raw.githubusercontent.com/csmvinhphuc/AutoCID/main/AutoCID-Online.ps1'
+  4. Tao Release: repo > Releases > Draft a new release >
+     Tag: v1.0.0 > dinh kem file AutoCID_Full_MoiNhat.zip > Publish.
+     (Asset phai dung ten AutoCID_Full_MoiNhat.zip, cau truc trong zip
+      giu nguyen thu muc EXE/... nhu ban full hien tai.)
+
+DUNG TREN MAY KHACH (chi 1 dong, mo PowerShell va dan):
+  Ban thuong:
+    irm https://raw.githubusercontent.com/csmvinhphuc/AutoCID/main/AutoCID-Online.ps1 | iex
+  Ban obfuscate:
+    & ([ScriptBlock]::Create((irm https://raw.githubusercontent.com/csmvinhphuc/AutoCID/main/AutoCID-Online.ps1))) -Exe Obf
+  Ban ma hoa AES:
+    & ([ScriptBlock]::Create((irm https://raw.githubusercontent.com/csmvinhphuc/AutoCID/main/AutoCID-Online.ps1))) -Exe MaHoa
+  Chi tai khong chay / khoa version:
+    ... -NoRun
+    ... -Version v1.0.0
+
+GHI CHU:
+  - Script tu xin quyen Admin (tool bat buoc Admin).
+  - May khach can Internet toi github.com + objects.githubusercontent.com.
+  - File tai ve nam o %TEMP%\AutoCID.
+  - Repo da gan san csmvinhphuc/AutoCID, upload xong la dung ngay.
